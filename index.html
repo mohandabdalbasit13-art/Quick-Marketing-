@@ -3,154 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quick Marketing | مراجعة الطلب والدفع</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Quick Marketing | خدماتنا الاحترافية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #080808;
-            --primary-text: #ffffff;
-            --accent-green: #2ecc71;
-            --card-bg: #1a1a1a;
-            --border-color: #333;
-            --whatsapp-green: #25D366;
+            --main-bg: linear-gradient(135deg, #0a0a0a 0%, #161a25 100%);
+            --card-bg: rgba(255, 255, 255, 0.04);
+            --accent-green: #00ff88;
+            --neon-blue: #00d4ff;
+            --danger-red: #ff4d4d;
+            --text-white: #ffffff;
+            --text-gray: #a0a0a0;
+            --whatsapp-color: #25D366;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Cairo', sans-serif; }
+        body { background: var(--main-bg); background-attachment: fixed; color: var(--text-white); padding: 20px; min-height: 100vh; }
+        .container { max-width: 500px; margin: 0 auto; }
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--primary-text);
-            line-height: 1.6;
-            padding: 20px;
-        }
+        /* Logo & Header */
+        .logo-container { text-align: center; margin-bottom: 10px; }
+        .main-logo { display: inline-flex; align-items: center; justify-content: center; width: 60px; height: 60px; border: 2px solid var(--accent-green); border-radius: 50%; box-shadow: 0 0 20px rgba(0, 255, 136, 0.2); font-size: 1.5rem; font-weight: 900; }
+        header { text-align: center; margin-bottom: 30px; }
+        header h1 { font-size: 2.2rem; font-weight: 900; }
+        .m-text { color: var(--accent-green); text-shadow: 0 0 10px rgba(0, 255, 136, 0.4); }
 
-        .container { max-width: 600px; margin: 0 auto; }
+        /* Services Title */
+        .section-title { font-size: 1.2rem; margin: 25px 0 15px; color: var(--neon-blue); display: flex; align-items: center; gap: 10px; }
+        .section-title::before { content: ""; width: 5px; height: 20px; background: var(--accent-green); border-radius: 10px; }
 
-        /* --- Logo & Header --- */
-        .logo-container { text-align: center; margin: 30px 0 20px; }
-        .main-logo {
-            display: inline-flex; align-items: center; justify-content: center;
-            width: 80px; height: 80px; border: 3px solid var(--accent-green);
-            border-radius: 50%; position: relative;
-            box-shadow: 0 0 15px rgba(46, 204, 113, 0.4);
-        }
-        .main-logo::after {
-            content: '⚡Q'; font-size: 2.2rem; color: #fff; font-weight: bold;
-        }
+        /* Service Cards */
+        .service-card { background: var(--card-bg); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 18px; padding: 20px; margin-bottom: 15px; backdrop-filter: blur(5px); }
+        .service-card h3 { font-size: 1.1rem; margin-bottom: 5px; color: var(--text-white); }
+        .service-card p { font-size: 0.85rem; color: var(--text-gray); margin-bottom: 15px; }
+        .price-row { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 12px; }
+        .price { font-weight: 700; color: var(--accent-green); font-size: 1.1rem; }
+        .add-btn { background: transparent; color: #fff; border: 1px solid #fff; padding: 6px 14px; border-radius: 20px; cursor: pointer; transition: 0.3s; font-size: 0.85rem; }
+        .add-btn:hover { background: var(--accent-green); border-color: var(--accent-green); color: #000; font-weight: 700; }
 
-        header { text-align: center; margin-bottom: 40px; }
-        header h1 { font-size: 2.2rem; position: relative; padding-bottom: 10px; }
-        .title-quick { color: var(--primary-text); }
-        .title-marketing { color: var(--accent-green); text-shadow: 0 0 8px rgba(46, 204, 113, 0.5); }
-        header h1::after {
-            content: ''; position: absolute; bottom: 0; left: 25%; width: 50%;
-            height: 3px; background-color: var(--accent-green); border-radius: 2px;
-        }
+        /* Cart */
+        .cart-section { background: rgba(0, 0, 0, 0.4); border-radius: 20px; padding: 20px; border: 1px solid rgba(255, 255, 255, 0.1); margin-top: 30px; }
+        .cart-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.05); font-size: 0.9rem; }
+        .remove-btn { color: var(--danger-red); background: none; border: none; cursor: pointer; font-size: 0.8rem; }
+        .total-row { display: flex; justify-content: space-between; margin-top: 20px; font-weight: 900; font-size: 1.2rem; }
+        .checkout-btn { width: 100%; background: var(--accent-green); color: #000; border: none; padding: 14px; border-radius: 12px; font-weight: 900; margin-top: 15px; cursor: pointer; transition: 0.3s; }
 
-        /* --- Services --- */
-        .section-title { font-size: 1.1rem; margin-bottom: 20px; border-right: 3px solid var(--accent-green); padding-right: 10px; }
-        .service-card {
-            background: var(--card-bg); border: 1px solid var(--border-color);
-            border-radius: 12px; padding: 20px; margin-bottom: 15px;
-        }
-        .price-row { display: flex; justify-content: space-between; align-items: center; margin-top: 15px; border-top: 1px solid #333; padding-top: 10px; }
-        .price { font-weight: 700; color: var(--accent-green); }
-        .add-btn {
-            background: transparent; color: #fff; border: 1px solid #fff;
-            padding: 6px 15px; border-radius: 20px; cursor: pointer; transition: 0.3s;
-        }
-        .add-btn:hover { background: var(--accent-green); border-color: var(--accent-green); color: #000; }
+        /* Floating WhatsApp */
+        .whatsapp-float { position: fixed; bottom: 25px; left: 25px; background: var(--whatsapp-color); color: white; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.4); z-index: 1000; }
 
-        /* --- Cart Section --- */
-        .cart-section { background: var(--card-bg); padding: 20px; border-radius: 12px; border: 1px solid var(--border-color); margin-top: 30px; }
-        .cart-items { list-style: none; font-size: 0.9rem; color: #ccc; margin-bottom: 15px; }
-        .total-row { border-top: 1px solid #444; padding-top: 10px; font-weight: 700; display: flex; justify-content: space-between; }
-
-        /* --- Modal (نافذة الدفع) --- */
-        .modal {
-            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.9); z-index: 1000; justify-content: center; align-items: center;
-        }
-        .modal-content {
-            background: #1a1a1a; padding: 25px; border-radius: 15px; width: 90%; max-width: 500px;
-            border: 1px solid var(--accent-green); text-align: center;
-        }
-        .payment-info { background: #111; padding: 15px; border-radius: 8px; margin: 20px 0; text-align: right; font-size: 0.85rem; }
-        .payment-info p { border-bottom: 1px solid #222; padding: 8px 0; }
-        .payment-info strong { color: var(--accent-green); }
-
-        .btn-final {
-            display: block; background: var(--whatsapp-green); color: #fff; text-decoration: none;
-            padding: 12px; border-radius: 8px; font-weight: 700; margin-top: 10px;
-        }
-
-        .close-modal { color: #888; cursor: pointer; float: left; font-size: 1.5rem; }
-
-        footer { text-align: center; margin-top: 40px; color: #666; font-size: 0.8rem; }
+        /* Modal */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 2000; justify-content: center; align-items: center; }
+        .modal-content { background: #111; padding: 25px; border-radius: 20px; width: 90%; max-width: 400px; border: 1px solid var(--accent-green); text-align: center; }
+        .payment-box { background: rgba(255,255,255,0.05); padding: 15px; border-radius: 12px; margin: 15px 0; text-align: right; font-size: 0.85rem; }
+        
+        footer { text-align: center; margin-top: 40px; color: var(--text-gray); font-size: 0.75rem; padding-bottom: 60px; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <div class="logo-container"><div class="main-logo"></div></div>
+    <div class="logo-container"><div class="main-logo">⚡Q</div></div>
     <header>
-        <h1><span class="title-quick">Quick</span> <span class="title-marketing">Marketing</span></h1>
+        <h1>Quick<br><span class="m-text">Marketing</span></h1>
         <p>إبداع بلا حدود • تصميمك بلمحة بصر</p>
     </header>
 
-    <h2 class="section-title">خدماتنا المختارة</h2>
-    <div id="services">
-        <div class="service-card">
-            <h3>تصميم دعوة أفراح فاخرة</h3>
-            <p>دمج بين الخط العربي الكلاسيكي واللمسات العصرية.</p>
-            <div class="price-row">
-                <span class="price">4,000 ج.س</span>
-                <button class="add-btn" onclick="addToCart('دعوة أفراح فاخرة', 4000)">إضافة للطلب</button>
-            </div>
+    <h2 class="section-title">خدمات الهوية والتصميم</h2>
+    
+    <div class="service-card">
+        <h3>تصميم بطاقة عمل</h3>
+        <p>انطباع أول احترافي بأسلوب مينيماليست عصري.</p>
+        <div class="price-row">
+            <span class="price">5,000 ج.س</span>
+            <button class="add-btn" onclick="addToCart('بطاقة عمل', 10000)">إضافة للطلب</button>
         </div>
-        <div class="service-card">
-            <h3>تصميم بطاقة عمل</h3>
-            <p>انطباع أول احترافي بأسلوب مينيماليست عصري.</p>
-            <div class="price-row">
-                <span class="price">5,000 ج.س</span>
-                <button class="add-btn" onclick="addToCart('بطاقة عمل', 5000)">إضافة للطلب</button>
-            </div>
+    </div>
+
+    <div class="service-card">
+        <h3>شهادة شكر / تخرج</h3>
+        <p>صياغة بصرية تعبر عن التقدير بلمسات فنية.</p>
+        <div class="price-row">
+            <span class="price">5,000 ج.س</span>
+            <button class="add-btn" onclick="addToCart('شهادة شكر/تخرج', 5000)">إضافة للطلب</button>
         </div>
-        <div class="service-card">
-            <h3>شهادة شكر / تخرج</h3>
-            <p>صياغة بصرية تعبر عن التقدير بلمسات فنية.</p>
-            <div class="price-row">
-                <span class="price">3,000 ج.س</span>
-                <button class="add-btn" onclick="addToCart('شهادة شكر/تخرج', 3000)">إضافة للطلب</button>
-            </div>
+    </div>
+
+    <h2 class="section-title">خدمات التسويق الرقمي</h2>
+
+    <div class="service-card" style="border-right: 3px solid var(--accent-green);">
+        <h3>إعلان احترافي لمنتج</h3>
+        <p>تصميم إعلان فيسبوك جذاب لزيادة المبيعات والانتشار.</p>
+        <div class="price-row">
+            <span class="price">10,000 ج.س</span>
+            <button class="add-btn" onclick="addToCart('إعلان منتج فيسبوك', 10000)">إضافة للطلب</button>
+        </div>
+    </div>
+
+    <div class="service-card">
+        <h3>إدارة صفحة فيسبوك</h3>
+        <p>إدارة المحتوى، التفاعل، والنمو بشكل احترافي شهرياً.</p>
+        <div class="price-row">
+            <span class="price">50,000 ج.س</span>
+            <button class="add-btn" onclick="addToCart('إدارة صفحة فيسبوك', 50000)">إضافة للطلب</button>
+        </div>
+    </div>
+
+    <div class="service-card" style="border: 1px solid var(--neon-blue);">
+        <h3>صفحة هبوط متجر إلكتروني</h3>
+        <p>تصميم صفحة (Landing Page) احترافية مخصصة للتحويل والبيع.</p>
+        <div class="price-row">
+            <span class="price">100,000 ج.س</span>
+            <button class="add-btn" onclick="addToCart('تصميم صفحة هبوط', 100000)">إضافة للطلب</button>
         </div>
     </div>
 
     <div class="cart-section">
         <h3>🛒 سلة طلباتك</h3>
-        <ul id="cart-list" class="cart-items"><li>السلة فارغة..</li></ul>
-        <div class="total-row"><span>الإجمالي:</span><span id="total-price" style="color:var(--accent-green)">0 ج.س</span></div>
-        <button onclick="showPaymentModal()" class="btn-final" style="width:100%; border:none; cursor:pointer;">إتمام الطلب والدفع</button>
+        <ul id="cart-list" class="cart-items">
+            <li style="color:#666; text-align:center; padding:10px;">اختر من الخدمات أعلاه..</li>
+        </ul>
+        <div class="total-row">
+            <span>الإجمالي:</span>
+            <span id="total-price" style="color:var(--accent-green)">0 ج.س</span>
+        </div>
+        <button class="checkout-btn" onclick="showPaymentModal()">إتمام الطلب والدفع</button>
     </div>
 
-    <footer>جميع الحقوق محفوظة © 2026 Quick Marketing<br>بإدارة مهند عبد الباسط - خبير هوية بصرية</footer>
+    <footer>جميع الحقوق محفوظة © 2026 Quick Marketing<br>بإدارة مهند عبد الباسط</footer>
 </div>
 
-<div id="paymentModal" class="modal">
+<a href="https://wa.me/249917717881?text=مرحباً، لدي استفسار بخصوص خدمات Quick Marketing" class="whatsapp-float" target="_blank">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91c0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m.03 1.67c2.2 0 4.26.86 5.82 2.42a8.23 8.23 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23c-1.48 0-2.93-.39-4.19-1.15l-.3-.17l-3.12.82l.83-3.04l-.2-.33a8.2 8.2 0 0 1-1.26-4.38c.01-4.54 3.7-8.23 8.25-8.23M8.3 7.3c-.13 0-.36.05-.56.26c-.2.21-.78.77-.78 1.87s.8 2.16.91 2.31c.11.15 1.58 2.41 3.82 3.38c.53.23 1.01.39 1.3.49c.53.17 1.02.14 1.41.08c.43-.06 1.33-.54 1.51-1.06c.19-.53.19-.98.13-1.06c-.05-.1-.21-.15-.46-.28c-.24-.13-1.41-.7-1.63-.78c-.22-.08-.38-.13-.53.1c-.16.23-.62.78-.76.93c-.14.16-.28.18-.53.05c-.24-.13-1.03-.38-1.96-1.21c-.72-.64-1.21-1.44-1.35-1.68c-.14-.24-.02-.37.11-.49c.11-.11.25-.29.37-.43c.1-.13.14-.21.21-.35c.07-.13.03-.26-.02-.37c-.05-.1-.53-1.28-.73-1.77c-.2-.48-.38-.42-.53-.42"/></svg>
+</a>
+
+<div id="payModal" class="modal">
     <div class="modal-content">
-        <span class="close-modal" onclick="closeModal()">&times;</span>
-        <h3 style="color:var(--accent-green)">تأكيد الطلب والدفع</h3>
-        <p style="font-size:0.9rem; margin-top:10px;">يرجى تحويل المبلغ لأحد الحسابات التالية وإرفاق الإشعار في الواتساب:</p>
-        
-        <div class="payment-info">
-            <p>🏦 <strong>بنكك:</strong> 7927256 <br> باسم: مهند عبدالباسط الحسين</p>
-            <p>💳 <strong>فوري:</strong> 52119923 <br> باسم: مهند عبدالباسط الحسين</p>
-            <p>📱 <strong>أو كاش:</strong> 1223324 <br> باسم: مهند عبدالباسط الحسين</p>
+        <h3 style="color:var(--accent-green)">بيانات تحويل التكلفة</h3>
+        <div class="payment-box">
+            <p>🏦 <strong>بنكك:</strong> 7927256</p>
+            <p>💳 <strong>فوري:</strong> 52119923</p>
+            <p>📱 <strong>أو كاش:</strong> 1223324</p>
+            <p>👤 <strong>باسم:</strong> مهند عبدالباسط الحسين</p>
         </div>
-
-        <div id="final-summary" style="margin-bottom:15px; font-size:0.9rem; text-align:right; border-right:2px solid #555; padding-right:10px;"></div>
-
-        <a href="#" id="whatsapp-final-btn" class="btn-final" onclick="redirectToWhatsapp()">تأكيد وإرسال عبر الواتساب</a>
+        <button class="checkout-btn" onclick="redirectToWhatsapp()">تأكيد وإرسال الإشعار</button>
+        <button onclick="closeModal()" style="background:none; border:none; color:#666; margin-top:15px; cursor:pointer;">إلغاء</button>
     </div>
 </div>
 
@@ -160,37 +156,48 @@
     const phone = "249917717881";
 
     function addToCart(name, price) {
-        cart.push({name, price});
-        total += price;
+        cart.push({ id: Date.now(), name, price });
+        calculateTotal();
         updateUI();
     }
 
+    function removeFromCart(id) {
+        cart = cart.filter(item => item.id !== id);
+        calculateTotal();
+        updateUI();
+    }
+
+    function calculateTotal() {
+        total = cart.reduce((sum, item) => sum + item.price, 0);
+    }
+
     function updateUI() {
-        const cartList = document.getElementById('cart-list');
-        const totalDisplay = document.getElementById('total-price');
+        const list = document.getElementById('cart-list');
+        const totalDisp = document.getElementById('total-price');
         if (cart.length === 0) {
-            cartList.innerHTML = '<li>السلة فارغة..</li>';
+            list.innerHTML = '<li style="color:#666; text-align:center; padding:10px;">السلة فارغة..</li>';
         } else {
-            cartList.innerHTML = cart.map(item => `<li>• ${item.name} (${item.price} ج.س)</li>`).join('');
+            list.innerHTML = cart.map(item => `
+                <li class="cart-item">
+                    <span>${item.name} (${item.price.toLocaleString()} ج.س)</span>
+                    <button class="remove-btn" onclick="removeFromCart(${item.id})">✖ حذف</button>
+                </li>
+            `).join('');
         }
-        totalDisplay.innerText = total.toLocaleString() + ' ج.س';
+        totalDisp.innerText = total.toLocaleString() + ' ج.س';
     }
 
     function showPaymentModal() {
-        if (cart.length === 0) { alert("السلة فارغة!"); return; }
-        document.getElementById('paymentModal').style.display = 'flex';
-        let summaryText = "الخدمات المختارة:<br>";
-        cart.forEach(item => summaryText += `- ${item.name}<br>`);
-        summaryText += `<strong>الإجمالي: ${total} ج.س</strong>`;
-        document.getElementById('final-summary').innerHTML = summaryText;
+        if(cart.length === 0) return alert("السلة فارغة!");
+        document.getElementById('payModal').style.display = 'flex';
     }
 
-    function closeModal() { document.getElementById('paymentModal').style.display = 'none'; }
+    function closeModal() { document.getElementById('payModal').style.display = 'none'; }
 
     function redirectToWhatsapp() {
-        let msg = `مرحباً مهند، أرغب في طلب الخدمات التالية:\n`;
-        cart.forEach((item, i) => msg += `${i+1}. ${item.name}\n`);
-        msg += `\nالإجمالي: ${total} ج.س\n\nلقد اطلعت على بيانات الدفع وسأقوم بإرسال الإشعار الآن.`;
+        let msg = `طلب جديد عبر Quick Marketing:\n`;
+        cart.forEach((it, i) => msg += `${i+1}. ${it.name}\n`);
+        msg += `\nالإجمالي: ${total.toLocaleString()} ج.س\nجاري إرسال إشعار الدفع...`;
         window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
         closeModal();
     }
