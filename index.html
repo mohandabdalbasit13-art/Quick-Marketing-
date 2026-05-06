@@ -3,320 +3,253 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Quick Marketing | خدمات التصميم الرقمي</title>
-    <meta name="description" content="كويك ماركتنج لخدمات التصميم الاحترافي في السودان. اطلب الآن عبر الواتساب واستمتع بخيارات دفع متعددة.">
-    <meta name="author" content="مهند عبدالباسط">
-
+    <title>Quick Marketing | إبداع بلا حدود</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
     <style>
         :root {
-            --primary-color: #25d366; 
-            --gold-color: #D4AF37;
-            --dark-bg: #0f172a;
-            --card-bg: #1e293b;
-            --text-light: #f8fafc;
+            --primary-green: #2ecc71;
+            --luxury-gold: #D4AF37;
+            --dark-bg: #0a0f1a;
+            --card-bg: #161e2d;
+            --text-white: #ffffff;
+            --text-gray: #94a3b8;
+            --danger: #ef4444;
         }
 
-        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        * { box-sizing: border-box; transition: all 0.3s ease; }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            background-color: var(--dark-bg);
-            color: var(--text-light);
-            line-height: 1.6;
+            margin: 0; background-color: var(--dark-bg); color: var(--text-white);
+            line-height: 1.6; overflow-x: hidden;
         }
 
-        /* الهيدر الثابت والشعار */
+        /* خلفية فخمة */
+        body::before {
+            content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at top right, rgba(212, 175, 55, 0.05), transparent),
+                        radial-gradient(circle at bottom left, rgba(46, 204, 113, 0.05), transparent);
+            z-index: -1;
+        }
+
         header {
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 15px;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 2px solid var(--gold-color);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            padding: 40px 20px; text-align: center;
+            border-bottom: 2px solid var(--luxury-gold);
+            background: rgba(22, 30, 45, 0.8); backdrop-filter: blur(10px);
         }
 
-        .logo-svg { width: 70px; height: 70px; margin-bottom: 5px; }
-
-        header h1 { 
-            margin: 0; font-size: 1.6rem; color: var(--primary-color);
-            letter-spacing: 1px;
+        .logo-area h1 { 
+            font-size: 2.8rem; margin: 0; color: var(--primary-green); 
+            text-shadow: 0 0 15px rgba(46, 204, 113, 0.3);
         }
 
-        header p { margin: 0; font-size: 0.85rem; color: var(--gold-color); font-weight: bold; }
+        .logo-area p { color: var(--luxury-gold); font-weight: bold; letter-spacing: 2px; margin-top: 5px; }
 
-        .container { padding: 20px; max-width: 1200px; margin: auto; }
+        .container { max-width: 1100px; margin: auto; padding: 20px; }
 
-        .section-title {
-            font-size: 1.2rem;
-            color: var(--gold-color);
-            margin: 20px 0 15px;
-            border-right: 4px solid var(--primary-color);
-            padding-right: 10px;
+        .section-header {
+            display: flex; align-items: center; gap: 15px; margin: 40px 0 20px;
         }
 
-        /* السلايدر المتجاوب */
-        .slider-container {
-            display: flex;
-            overflow-x: auto;
-            gap: 20px;
-            padding-bottom: 20px;
-            scroll-snap-type: x mandatory;
+        .section-header h2 { color: var(--luxury-gold); font-size: 1.5rem; margin: 0; }
+        .line { flex-grow: 1; height: 1px; background: linear-gradient(to left, var(--luxury-gold), transparent); }
+
+        /* شبكة الخدمات */
+        .services-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;
         }
 
-        .slider-container::-webkit-scrollbar { height: 6px; }
-        .slider-container::-webkit-scrollbar-thumb { background: var(--gold-color); border-radius: 10px; }
-
-        .product-card {
-            background: var(--card-bg);
-            min-width: 280px;
-            border-radius: 20px;
-            padding: 20px;
-            border: 1px solid #334155;
-            text-align: center;
-            scroll-snap-align: start;
-            transition: 0.3s;
+        .card {
+            background: var(--card-bg); border-radius: 20px; padding: 25px;
+            border: 1px solid rgba(255,255,255,0.05); position: relative; overflow: hidden;
         }
 
-        .product-card:hover { border-color: var(--primary-color); transform: translateY(-5px); }
+        .card:hover { border-color: var(--luxury-gold); transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
 
-        .product-card img {
-            width: 100%; height: 180px;
-            object-fit: cover; border-radius: 15px;
-            background: #000; margin-bottom: 15px;
-        }
-
-        .price { color: var(--gold-color); font-weight: bold; font-size: 1.4rem; margin-bottom: 15px; }
+        .card h3 { color: var(--text-white); margin-top: 0; }
+        .card p { color: var(--text-gray); font-size: 0.9rem; min-height: 50px; }
+        .price { font-size: 1.4rem; color: var(--luxury-gold); font-weight: bold; display: block; margin: 15px 0; }
 
         .add-btn {
-            background: linear-gradient(45deg, #128c7e, var(--primary-color));
-            color: white; border: none; padding: 12px;
-            border-radius: 12px; cursor: pointer; width: 100%; font-weight: bold;
-            display: flex; align-items: center; justify-content: center; gap: 8px;
+            background: linear-gradient(45deg, #27ae60, var(--primary-green));
+            color: white; border: none; width: 100%; padding: 12px;
+            border-radius: 12px; cursor: pointer; font-weight: bold; font-size: 1rem;
         }
 
-        /* سلة الطلبات والدفع */
-        .cart-section {
-            background: var(--card-bg);
-            margin-top: 30px;
-            padding: 25px;
-            border-radius: 20px;
-            border: 1px dashed var(--gold-color);
+        .add-btn:active { transform: scale(0.95); }
+
+        /* سلة المشتريات الاحترافية */
+        .cart-container {
+            margin-top: 50px; background: var(--card-bg); border-radius: 25px;
+            padding: 30px; border: 2px dashed var(--luxury-gold);
         }
 
-        #cart-items { list-style: none; padding: 0; margin: 0; }
-        #cart-items li {
-            display: flex; justify-content: space-between;
-            padding: 12px 0; border-bottom: 1px solid #334155;
+        .cart-item {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+            animation: fadeIn 0.4s ease;
         }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
+
+        .remove-btn {
+            background: rgba(239, 68, 68, 0.1); color: var(--danger);
+            border: 1px solid var(--danger); width: 35px; height: 35px;
+            border-radius: 10px; cursor: pointer; display: flex; align-items: center; justify-content: center;
+        }
+
+        .remove-btn:hover { background: var(--danger); color: white; }
 
         .total-box {
-            display: flex; justify-content: space-between;
-            font-size: 1.5rem; margin: 20px 0;
-            color: var(--primary-color); font-weight: bold;
+            display: flex; justify-content: space-between; align-items: center;
+            margin-top: 30px; padding: 20px; background: rgba(255,255,255,0.02); border-radius: 15px;
         }
 
-        /* صندوق بيانات الحساب البنكي المطور */
-        .payment-info-box {
-            background: #0f172a;
-            border: 1px solid var(--primary-color);
-            border-radius: 15px;
-            padding: 20px;
-            margin-top: 15px;
-            display: none;
-            animation: slideDown 0.4s ease;
+        .total-amount { font-size: 1.8rem; color: var(--primary-green); font-weight: bold; }
+
+        .checkout-btn {
+            background: var(--luxury-gold); color: #000; width: 100%;
+            padding: 20px; border-radius: 15px; border: none; font-size: 1.3rem;
+            font-weight: bold; cursor: pointer; margin-top: 20px;
         }
 
-        @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
-
-        .acc-number { color: var(--gold-color); font-weight: bold; font-size: 1.4rem; display: block; margin: 5px 0; }
-
-        select {
-            width: 100%; padding: 15px; border-radius: 12px;
-            background: var(--dark-bg); color: white; border: 1px solid var(--gold-color);
-            margin-top: 10px; font-size: 1rem; cursor: pointer;
+        /* زر الواتساب العائم */
+        .wa-float {
+            position: fixed; bottom: 30px; left: 30px;
+            width: 65px; height: 65px; background: #25d366;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3); z-index: 1000;
+            text-decoration: none; color: white; font-size: 32px;
         }
 
-        .order-btn {
-            background: var(--primary-color); color: white;
-            width: 100%; border: none; padding: 20px;
-            font-size: 1.3rem; font-weight: bold; border-radius: 15px;
-            cursor: pointer; margin-top: 25px;
-            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
-        }
+        .wa-float:hover { transform: scale(1.1) rotate(10deg); }
 
-        footer { text-align: center; padding: 50px 20px; color: #64748b; font-size: 0.9rem; }
+        footer { text-align: center; padding: 40px; color: var(--text-gray); font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
 <header>
-    <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-            <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style="stop-color:#25d366;stop-opacity:1" />
-                <stop offset="100%" style="stop-color:#D4AF37;stop-opacity:1" />
-            </linearGradient>
-        </defs>
-        <circle cx="50" cy="50" r="45" stroke="url(#logoGrad)" stroke-width="2" fill="none" />
-        <path d="M50 30 L40 55 L55 55 L45 80 L60 45 L45 45 Z" fill="url(#logoGrad)" />
-        <text x="62" y="72" font-family="Arial" font-size="18" font-weight="bold" fill="white">Q</text>
-    </svg>
-    <h1>Quick Marketing</h1>
-    <p>تصميمك.. بلمحة بصر</p>
+    <div class="logo-area">
+        <h1>Quick Marketing</h1>
+        <p>إبداع بلا حدود • تصميمك بلمحة بصر</p>
+    </div>
 </header>
 
 <div class="container">
-    <div class="section-title">قائمة خدماتنا المختارة:</div>
-    
-    <div class="slider-container">
-        <div class="product-card">
-            <img src="https://via.placeholder.com/280x180/1e293b/f8fafc?text=Wedding+Invite" alt="دعوة">
-            <h3>تصميم دعوة افراح</h3>
-            <p class="price">4,000 ج.س</p>
-            <button class="add-btn" onclick="addToCart('تصميم دعوة افراح', 4000)">
-                <i class="fas fa-cart-plus"></i> إضافة للسلة
-            </button>
+    <div class="section-header">
+        <h2>خدماتنا المختارة</h2>
+        <div class="line"></div>
+    </div>
+
+    <div class="services-grid">
+        <div class="card">
+            <h3>تصميم دعوة أفراح فاخرة</h3>
+            <p>دمج بين الخط العربي الكلاسيكي واللمسات العصرية المذهبة.</p>
+            <span class="price">4,000 ج.س</span>
+            <button class="add-btn" onclick="addToCart('دعوة أفراح فاخرة', 4000)">إضافة للطلب</button>
         </div>
 
-        <div class="product-card">
-            <img src="https://via.placeholder.com/280x180/1e293b/f8fafc?text=Business+Card" alt="بطاقة">
-            <h3>تصميم بطاقات عمل</h3>
-            <p class="price">5,000 ج.س</p>
-            <button class="add-btn" onclick="addToCart('تصميم بطاقة عمل', 5000)">
-                <i class="fas fa-cart-plus"></i> إضافة للسلة
-            </button>
+        <div class="card">
+            <h3>تصميم بطاقة عمل</h3>
+            <p>انطباع أول احترافي بأسلوب "مينيماليست" عصري وجذاب.</p>
+            <span class="price">5,000 ج.س</span>
+            <button class="add-btn" onclick="addToCart('بطاقة عمل احترافية', 5000)">إضافة للطلب</button>
         </div>
 
-        <div class="product-card">
-            <img src="https://via.placeholder.com/280x180/1e293b/f8fafc?text=Payment+Card" alt="بطاقة دفع">
-            <h3>بطاقة (بنكك/فوري/أوكاش)</h3>
-            <p class="price">3,500 ج.س</p>
-            <button class="add-btn" onclick="addToCart('تصميم بطاقة دفع', 3500)">
-                <i class="fas fa-cart-plus"></i> إضافة للسلة
-            </button>
-        </div>
-
-        <div class="product-card">
-            <img src="https://via.placeholder.com/280x180/1e293b/f8fafc?text=Certificate" alt="شهادة">
-            <h3>شهادة شكر وتقدير</h3>
-            <p class="price">3,000 ج.س</p>
-            <button class="add-btn" onclick="addToCart('شهادة شكر وتقدير', 3000)">
-                <i class="fas fa-cart-plus"></i> إضافة للسلة
-            </button>
+        <div class="card">
+            <h3>شهادة شكر / تخرج</h3>
+            <p>صياغة بصرية تعبر عن التقدير بلمسات فنية رصينة.</p>
+            <span class="price">3,000 ج.س</span>
+            <button class="add-btn" onclick="addToCart('شهادة شكر/تخرج', 3000)">إضافة للطلب</button>
         </div>
     </div>
 
-    <div class="cart-section">
-        <h3><i class="fas fa-shopping-basket"></i> مراجعة طلبك</h3>
-        <ul id="cart-items">
-            <p style="text-align:center; color:#64748b;">سلتك فارغة حالياً..</p>
-        </ul>
-        
+    <div class="cart-container" id="my-cart">
+        <h2 style="text-align: center; margin-bottom: 30px;">
+            <i class="fas fa-shopping-bag" style="color: var(--luxury-gold);"></i> سلة طلباتك
+        </h2>
+        <div id="cart-list">
+            <p style="text-align: center; color: var(--text-gray);">السلة فارغة، اختر من الخدمات أعلاه..</p>
+        </div>
+
         <div class="total-box">
-            <span>الإجمالي:</span>
-            <span><span id="total-price">0</span> ج.س</span>
+            <span>الإجمالي النهائي:</span>
+            <span class="total-amount"><span id="total-val">0</span> ج.س</span>
         </div>
 
-        <div class="payment-box">
-            <label>اختر وسيلة الدفع لعرض رقم الحساب:</label>
-            <select id="payment-method" onchange="updatePaymentInfo()">
-                <option value="">-- اختر وسيلة الدفع --</option>
-                <option value="بنكك">تطبيق بنكك (Bankak)</option>
-                <option value="فوري">تطبيق فوري (Fawry)</option>
-                <option value="أوكاش">تطبيق أوكاش (بنك أمدرمان)</option>
-                <option value="كاش">دفع نقدي (كاش)</option>
-            </select>
-
-            <div id="account-info" class="payment-info-box">
-                <span id="acc-label" style="font-size: 0.9rem; opacity: 0.8;">رقم حساب المحول إليه:</span>
-                <span class="acc-number" id="acc-num">0000000</span>
-                <p>باسم: <strong>مهند عبدالباسط الحسين</strong></p>
-                <small style="color: var(--primary-color);">* يرجى إرسال صورة الإشعار بعد التحويل.</small>
-            </div>
-        </div>
-
-        <button class="order-btn" onclick="sendToWhatsApp()">
-            <i class="fab fa-whatsapp"></i> تأكيد الطلب عبر واتساب
+        <button class="checkout-btn" onclick="sendWhatsApp()">
+            <i class="fab fa-whatsapp"></i> إرسال الطلب عبر واتساب
         </button>
     </div>
 </div>
 
+<a href="https://wa.me/249917717881?text=مرحباً، أريد الاستفسار عن خدمة خاصة" class="wa-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
 <footer>
-    &copy; 2026 Quick Marketing <br>
-    بإدارة مهند عبدالباسط | جميع الحقوق محفوظة
+    جميع الحقوق محفوظة &copy; 2026 Quick Marketing <br>
+    بإدارة مهند عبد الباسط - خبير هوية بصرية
 </footer>
 
 <script>
     let cart = [];
-    let total = 0;
-
-    // بيانات الحسابات المحدثة
-    const paymentDetails = {
-        "بنكك": "7927256",
-        "فوري": "52119923",
-        "أوكاش": "1223324"
-    };
 
     function addToCart(name, price) {
-        cart.push({name, price});
-        total += price;
+        const id = Date.now();
+        cart.push({ id, name, price });
+        updateUI();
+        // تمرير تلقائي للسلة عند إضافة أول عنصر
+        if(cart.length === 1) document.getElementById('my-cart').scrollIntoView({behavior: 'smooth'});
+    }
+
+    function removeFromCart(id) {
+        cart = cart.filter(item => item.id !== id);
         updateUI();
     }
 
     function updateUI() {
-        const cartList = document.getElementById('cart-items');
-        const totalDisp = document.getElementById('total-price');
-        
-        cartList.innerHTML = cart.length === 0 ? '<p style="text-align:center; color:#64748b;">سلتك فارغة حالياً..</p>' : '';
-        cart.forEach((item) => {
-            cartList.innerHTML += `<li>${item.name} <span>${item.price.toLocaleString()} ج.س</span></li>`;
-        });
-        totalDisp.innerText = total.toLocaleString();
-    }
+        const listElement = document.getElementById('cart-list');
+        const totalElement = document.getElementById('total-val');
+        listElement.innerHTML = '';
+        let total = 0;
 
-    function updatePaymentInfo() {
-        const method = document.getElementById('payment-method').value;
-        const infoBox = document.getElementById('account-info');
-        const numDisp = document.getElementById('acc-num');
-        const labelDisp = document.getElementById('acc-label');
-
-        if (paymentDetails[method]) {
-            infoBox.style.display = 'block';
-            numDisp.innerText = paymentDetails[method];
-            labelDisp.innerText = `رقم حساب ${method}:`;
-        } else if (method === "كاش") {
-            infoBox.style.display = 'block';
-            labelDisp.innerText = "الدفع عند الاستلام:";
-            numDisp.innerText = "متاح للمقابلة الشخصية";
+        if (cart.length === 0) {
+            listElement.innerHTML = '<p style="text-align: center; color: var(--text-gray);">السلة فارغة، اختر من الخدمات أعلاه..</p>';
         } else {
-            infoBox.style.display = 'none';
+            cart.forEach(item => {
+                total += item.price;
+                listElement.innerHTML += `
+                    <div class="cart-item">
+                        <span>${item.name}</span>
+                        <div style="display:flex; align-items:center; gap:15px;">
+                            <span style="color: var(--luxury-gold); font-weight:bold;">${item.price.toLocaleString()} ج.س</span>
+                            <button class="remove-btn" onclick="removeFromCart(${item.id})">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
         }
+        totalElement.innerText = total.toLocaleString();
     }
 
-    function sendToWhatsApp() {
-        if (cart.length === 0) { alert("من فضلك اختر خدمة أولاً!"); return; }
-        const method = document.getElementById('payment-method').value;
-        if (!method) { alert("من فضلك اختر وسيلة الدفع!"); return; }
+    function sendWhatsApp() {
+        if (cart.length === 0) return alert("من فضلك أضف خدمة واحدة على الأقل!");
+        
+        let msg = "*طلب تصميم جديد - Quick Marketing*%0A";
+        msg += "--------------------------%0A";
+        cart.forEach((item, index) => {
+            msg += `${index + 1}. ${item.name} - ${item.price.toLocaleString()} ج.س%0A`;
+        });
+        msg += "--------------------------%0A";
+        msg += `*الإجمالي:* ${document.getElementById('total-val').innerText} ج.س%0A`;
+        msg += "--------------------------%0A";
+        msg += "أرجو تأكيد الاستلام للبدء في العمل.";
 
-        const phone = "249917717881";
-        let message = `*طلب جديد من Quick Marketing*%0A`;
-        message += `==========================%0A`;
-        cart.forEach((item, i) => message += `${i+1}. ${item.name} - ${item.price.toLocaleString()} ج.س%0A`);
-        message += `==========================%0A`;
-        message += `*الإجمالي:* ${total.toLocaleString()} ج.س%0A`;
-        message += `*وسيلة الدفع:* ${method}%0A`;
-        if(paymentDetails[method]) message += `*المحول إليه:* ${paymentDetails[method]}%0A`;
-        message += `==========================%0A`;
-        message += `أرجو مراجعة الطلب لبدء العمل.`;
-
-        window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+        window.open(`https://wa.me/249917717881?text=${msg}`, '_blank');
     }
 </script>
 
